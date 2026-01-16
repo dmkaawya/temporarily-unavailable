@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>තාවකාලික දැනුම්දීම | Temporary Notice</title>
+    
+    <!-- Google Fonts - Sinhala සහ English සඳහා හොඳ fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;700;900&family=Playfair+Display:wght@700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #000000, #220000);
+            color: #ffffff;
+            font-family: 'Open Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            text-align: center;
+            padding: 60px 40px;
+            background: rgba(15, 15, 15, 0.85);
+            border-radius: 30px;
+            box-shadow: 0 0 40px rgba(255, 50, 0, 0.6);
+            border: 1px solid rgba(255, 80, 0, 0.3);
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: #ff4400;
+            text-shadow: 0 0 20px #ff2200, 0 0 40px #ff5500;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+        
+        p {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+        
+        .sinhala {
+            font-family: 'Noto Sans Sinhala', sans-serif;
+            font-weight: 500;
+        }
+        
+        .lang-switch {
+            margin-bottom: 50px;
+        }
+        
+        .lang-btn {
+            background: transparent;
+            border: 2px solid #ff5500;
+            color: #ff5500;
+            padding: 12px 30px;
+            margin: 0 10px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.4s;
+        }
+        
+        .lang-btn:hover {
+            background: #ff5500;
+            color: #000;
+            box-shadow: 0 0 20px #ff7700;
+        }
+        
+        .lang-btn.active {
+            background: #ff4400;
+            color: #000;
+            box-shadow: 0 0 25px #ff6600;
+        }
+        
+        .button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff3300, #ff6600);
+            color: #ffffff;
+            padding: 20px 50px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            margin-top: 40px;
+            text-decoration: none;
+            box-shadow: 0 0 30px rgba(255, 80, 0, 0.8);
+            transition: all 0.4s;
+        }
+        
+        .button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 0 50px rgba(255, 100, 0, 1);
+            background: linear-gradient(45deg, #ff5500, #ff8800);
+        }
+        
+        #sinhala-content { display: block; }
+        #english-content { display: none; }
+        
+        .fire-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 50, 0, 0.1), transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="fire-glow"></div>
+    
+    <div class="container">
+        <!-- Language Switch -->
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="showLang('si')">සිංහල</button>
+            <button class="lang-btn" onclick="showLang('en')">English</button>
+        </div>
+        
+        <!-- Sinhala Content (Default) -->
+        <div id="sinhala-content" class="sinhala">
+            <h1>තාවකාලික දැනුම්දීම</h1>
+            <p>අපගේ වර්තමාන ප්‍රවර්ධන (Promotions) 2026 නොවැම්බර් මස 1 වැනිදා දක්වා තාවකාලිකව අත්හිටුවා ඇත.</p>
+            <p>එහෙත් ඔබට වෙලාවක් වෙන්කිරීම් (Bookings) සිදු කළ හැක.</p>
+            <p>මිල ගණන් බැලීමට සහ වෙන්කිරීමක් කිරීමට පහත Button එක භාවිතා කරන්න.</p>
+            <a href="http://m-k-boost-kwee.vercel.app/" class="button">මිල බලන්න සහ බුකිං කරන්න</a>
+        </div>
+        
+        <!-- English Content -->
+        <div id="english-content">
+            <h1>Temporary Notice</h1>
+            <p>Our current promotions are temporarily paused until November 1, 2026.</p>
+            <p>However, you can still make bookings at regular prices anytime.</p>
+            <p>To view prices and make a booking, please use the button below.</p>
+            <a href="index.html" class="button">View Prices and Book</a>
+        </div>
+    </div>
+
+    <script>
+        function showLang(lang) {
+            if (lang === 'si') {
+                document.getElementById('sinhala-content').style.display = 'block';
+                document.getElementById('english-content').style.display = 'none';
+                document.querySelectorAll('.lang-btn')[0].classList.add('active');
+                document.querySelectorAll('.lang-btn')[1].classList.remove('active');
+            } else {
+                document.getElementById('sinhala-content').style.display = 'none';
+                document.getElementById('english-content').style.display = 'block';
+                document.querySelectorAll('.lang-btn')[0].classList.remove('active');
+                document.querySelectorAll('.lang-btn')[1].classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
