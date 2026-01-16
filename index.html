@@ -180,7 +180,7 @@
         </p>
 
         <div class="countdown-wrapper">
-            <div class="countdown" id="countdown">30</div>
+            <div class="countdown" id="countdown">60</div>
         </div>
         <div class="seconds">wait..</div>
 
@@ -194,7 +194,7 @@ Go to Booking Page Now
     <script>
         const countdownEl = document.getElementById('countdown');
         const manualBtn = document.getElementById('manualBtn');
-        let timeLeft = 30;
+        let timeLeft = 60;
         let lastTime = 0;
         let frameId;
 
@@ -202,7 +202,7 @@ Go to Booking Page Now
             if (!lastTime) lastTime = timestamp;
             const delta = timestamp - lastTime;
 
-            if (delta > 900) {  // ~every second
+            if (delta > 100) {  // ~every second
                 timeLeft--;
                 countdownEl.textContent = timeLeft;
 
